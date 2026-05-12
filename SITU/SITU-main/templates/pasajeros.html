@@ -1,4 +1,5 @@
 {% extends "./base.html" %}
+{% load static %}
 {% block title %}
     PASAJE
 {% endblock %}
@@ -64,9 +65,11 @@
                         <td>{{e.telefono}}</td>
                         
                         <td>
-                        {% load static %}
+                        {% if e.imagen %}
+                        <img src="{{ e.imagen.url }}" alt="Imagen de {{ e.nombre }}" width="65" height="50"><br>
+                        {% else %}
                         <img src="{% static 'logo.png' %}" alt="Imagen no encontrada" width="65" height="50"><br>
-                        {{e.imagen}}
+                        {% endif %}
                         </td>
                         <td>{{e.correo}}</td>
                         <td>
